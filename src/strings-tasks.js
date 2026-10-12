@@ -530,7 +530,7 @@ function getCardId(value) {
     'Q♠',
     'K♠',
   ];
-  return value.indexOf(anArray);
+  return anArray.indexOf(value);
 }
 
 module.exports = {
