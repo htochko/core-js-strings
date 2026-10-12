@@ -159,6 +159,16 @@ function repeatString(str, times) {
  *   removeFirstOccurrences('ABABAB', 'BA') => 'ABAB'.
  */
 function removeFirstOccurrences(str, value) {
+  if (typeof str !== 'string' || typeof value !== 'string') {
+    return '';
+  }
+
+  if (value === '') {
+    return str;
+  }
+  if (str.indexOf(value) === -1) {
+    return str;
+  }
   return (
     str.slice(0, str.indexOf(value)) +
     str.slice(str.indexOf(value) + value.length)
@@ -177,10 +187,20 @@ function removeFirstOccurrences(str, value) {
  *   removeLastOccurrences('ABABAB', 'BA') => 'ABAB'.
  */
 function removeLastOccurrences(str, value) {
-  return (
-    str.slice(0, str.lastIndexOf(value)) +
-    str.slice(str.lastIndexOf(value) + value.length)
-  );
+  if (typeof str !== 'string' || typeof value !== 'string') {
+    return '';
+  }
+
+  if (value === '') {
+    return str;
+  }
+
+  const lastIndex = str.lastIndexOf(value);
+
+  if (lastIndex === -1) {
+    return str;
+  }
+  return str.slice(0, lastIndex) + str.slice(lastIndex + value.length);
 }
 
 /**
