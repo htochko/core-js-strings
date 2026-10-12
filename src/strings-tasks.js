@@ -19,8 +19,9 @@
  *   getStringLength(null) => 0
  *   getStringLength(undefined) => 0
  */
-function getStringLength(/* value */) {
-  throw new Error('Not implemented');
+function getStringLength(aString) {
+  const safeString = aString ?? '';
+  return safeString.length;
 }
 
 /**
@@ -37,8 +38,8 @@ function getStringLength(/* value */) {
  *   isString('test') => true
  *   isString(new String('test')) => true
  */
-function isString(/* value */) {
-  throw new Error('Not implemented');
+function isString(aString = null) {
+  return typeof aString === 'string' || aString instanceof String;
 }
 
 /**
